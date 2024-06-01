@@ -65,7 +65,5 @@ class MyTestCase(unittest.TestCase):
         self.billNameOnCard = "John mid Doe"
         self.assertEqual(countUniqueNames(self.billFirstName, self.billLastName, self.shipFirstName, self.shipLastName, self.billNameOnCard), 1)
 
-
-
 if __name__ == '__main__':
     unittest.main()

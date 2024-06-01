@@ -11,6 +11,8 @@ def change_max_typos(new_max_typos):
     """
     global MAX_TYPOS
     MAX_TYPOS = new_max_typos
+def get_max_typos():
+    return MAX_TYPOS
 def countUniqueNames(billFirstName, billLastName, shipFirstName, shipLastName, billNameOnCard):
     """
     returns the amount of unique names
@@ -111,7 +113,14 @@ def parseName(name):
     if not name:
         return None
     name = name.lower().split(" ")
+    if len(name) < 2:
+        raise Exception("Name must have at least two parts")
     first_name = name.pop(0)
+    if not first_name:
+        raise Exception("First name must not be empty")
+
     last_name = name.pop(-1)
+    if not last_name:
+        raise Exception("last name must not be empty")
     middle_name = " ".join(name) if name else ""
     return {"first_name": first_name, "middle_name": middle_name, "last_name": last_name}
